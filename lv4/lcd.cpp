@@ -1,0 +1,29 @@
+#include <LiquidCrystal_I2C.h> 
+__________________
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+__________________
+/*-----------------------------------------------*/
+void LcdSetup()
+{
+  lcd.init();
+  lcd.display();        //เปิดหน้าจอ
+  lcd.backlight();      //เปิดไฟ backlight
+  lcd.clear();          //ล้างหน้าจอ
+  DisplayLcd(5,"Level4",3,"FWV 1.0.0");
+}
+/*-----------------------------------------------*/
+void DisplayLcd(uint8_t Row1,String Text1,uint8_t Row2,String Text2)
+{
+  lcd.clear();
+  lcd.setCursor(Row1,0); 
+  lcd.print(Text1); 
+  lcd.setCursor(Row2,1); 
+  lcd.print(Text2); 
+}
+/*-----------------------------------------------*/
+void DisplayOff() 
+{
+  lcd.clear();
+}
+/*-----------------------------------------------*/
